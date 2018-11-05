@@ -1,6 +1,5 @@
 FROM python:3.6
 
-ADD sources.list /etc/apt/sources.list
 ADD pip.conf ~/.pip/pip.conf
 
 # Add requirements.txt
