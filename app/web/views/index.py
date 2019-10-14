@@ -23,4 +23,4 @@ def index():
 def html_convert():
     data = request.data
     ret = imgkit.from_string(data, False)
-    return send_file(io.BytesIO(ret), mimetype='image/png')
+    return send_file(io.BytesIO(ret), mimetype='image/jpeg')
