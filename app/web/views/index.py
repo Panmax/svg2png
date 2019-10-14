@@ -5,6 +5,7 @@ from __future__ import unicode_literals, absolute_import
 import io
 import cairosvg
 import imgkit
+import logging
 
 from flask import Blueprint, request, send_file
 
@@ -22,6 +23,7 @@ def index():
 @bp.route('/html/convert', methods=['POST'])
 def html_convert():
     data = request.data
-    print(data)
+    logging.info(data)
+    logging.info(type(data))
     ret = imgkit.from_string(data.decode('utf-8'), False)
     return send_file(io.BytesIO(ret), mimetype='image/jpeg')
