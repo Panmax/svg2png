@@ -23,5 +23,5 @@ def index():
 @bp.route('/html/convert', methods=['POST'])
 def html_convert():
     data = request.data
-    ret = imgkit.from_string(data.decode('utf-8'), False, options={'format': 'png'})
+    ret = imgkit.from_string(data.decode('utf-8'), False, options={'format': 'png', 'encoding': "UTF-8", })
     return send_file(io.BytesIO(ret), mimetype='image/png')
