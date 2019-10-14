@@ -3,6 +3,8 @@ FROM python:3.6
 #RUN sed -i "s@http://deb.debian.org@http://mirrors.aliyun.com@g" /etc/apt/sources.list && rm -Rf /var/lib/apt/lists/* && apt-get update
 RUN apt-get update
 RUN apt-get install -y wkhtmltopdf
+ADD simsun.ttf /dev/share/fonts/
+ADD simsun.ttf ~/.fonts/
 
 ADD pip.conf ~/.pip/pip.conf
 
