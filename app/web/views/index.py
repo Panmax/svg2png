@@ -29,5 +29,5 @@ def html_convert():
 
 @bp.route('/html/convert', methods=['GET'])
 def test_html_convert():
-    ret = imgkit.from_url("https://jpanj.com", False, options={'format': 'png', 'encoding': "UTF-8", })
+    ret = imgkit.from_url("http://lvhuayiadmin.1programmer.com/preView/video/zh-CN/36/1", False, options={'format': 'png', 'encoding': "UTF-8", })
     return send_file(io.BytesIO(ret), mimetype='image/png')
