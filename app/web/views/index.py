@@ -31,5 +31,5 @@ def html_convert():
 def test_html_convert():
     html = '<h1>Hello World!</h1>'
 
-    ret = imgkit.from_string(html.encode(""), False, options={'format': 'png', 'encoding': "UTF-8", })
+    ret = imgkit.from_string(html, False, options={'format': 'png', 'encoding': "UTF-8", })
     return send_file(io.BytesIO(ret), mimetype='image/png')
