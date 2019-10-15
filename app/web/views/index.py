@@ -19,24 +19,9 @@ def index():
     return send_file(io.BytesIO(ret), mimetype='image/png')
 
 
-@bp.route('/html/convert', methods=['POST'])
-def html_convert():
-    data = request.data
-    ret = imgkit.from_string(data.decode('utf-8'), False, options={'format': 'png', 'encoding': "UTF-8", })
-    return send_file(io.BytesIO(ret), mimetype='image/png')
-
-
 @bp.route('/html/convert', methods=['GET'])
 def test_html_convert():
     url = request.args.get("url")
 
     ret = imgkit.from_url(url, False, options={'format': 'png', 'encoding': "UTF-8", })
-    return send_file(io.BytesIO(ret), mimetype='image/png')
-
-
-@bp.route('/html/convert2', methods=['GET'])
-def test_html_convert2():
-    file_path = request.args.get("path")
-
-    ret = imgkit.from_file(file_path, False, options={'format': 'png', 'encoding': "UTF-8", })
     return send_file(io.BytesIO(ret), mimetype='image/png')
