@@ -35,7 +35,7 @@ def test_html_convert():
 
 
 @bp.route('/html/convert2', methods=['GET'])
-def test_html_convert():
+def test_html_convert2():
     html = """<html class=" ">
  <head>
   <meta charset="utf-8" />
