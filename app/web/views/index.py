@@ -8,7 +8,6 @@ import imgkit
 
 from flask import Blueprint, request, send_file
 
-
 bp = Blueprint('home', __name__)
 
 
@@ -23,5 +22,6 @@ def index():
 def test_html_convert():
     url = request.args.get("url")
 
-    ret = imgkit.from_url(url, False, options={'format': 'png', 'encoding': "UTF-8", })
+    options = {'format': 'png', 'encoding': "UTF-8", 'crop-h': '3', 'crop-w': '3', }
+    ret = imgkit.from_url(url, False, options=options)
     return send_file(io.BytesIO(ret), mimetype='image/png')
