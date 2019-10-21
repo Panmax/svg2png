@@ -21,7 +21,9 @@ def index():
 @bp.route('/html/convert', methods=['GET'])
 def test_html_convert():
     url = request.args.get("url")
+    h = request.args.get('username')
+    w = request.args.get('password')
 
-    options = {'format': 'png', 'encoding': "UTF-8", 'crop-h': '3', 'crop-w': '3', }
+    options = {'format': 'png', 'encoding': "UTF-8", 'crop-h': h, 'crop-w': w, }
     ret = imgkit.from_url(url, False, options=options)
     return send_file(io.BytesIO(ret), mimetype='image/png')
